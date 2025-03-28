@@ -1,7 +1,7 @@
 ﻿@model Practica4.Models.Estado
 
 @{
-    ViewBag.Title = "Crear estados";
+    ViewBag.Title = "Editar estados";
 }
 
 @if (TempData["Message"] is not null)
@@ -12,17 +12,18 @@
 }
 
 
-<form asp-action="Create">
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id"/>
     <div asp-validation-summary="ModelOnly" class="text-danger">
 
     </div>
     <div class="card">
         <div class="card-header">
             <span class="card-title fs-5">
-                Crear estados
+                Editar estados
             </span>
         </div>
-        
+
         <div class="card-body">
             <div class="col-md-6">
                 <div class="form-group">
@@ -30,21 +31,21 @@
                     <input asp-for="Name" class="form-control"/>
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
-                
+
                 <div class="form-group">
                     <label asp-for="Descripcion" class="control-label"></label>
                     <textarea asp-for="Descripcion" class="form-control"></textarea>
                     <span asp-validation-for="Descripcion" class="text-danger"></span>
                 </div>
-                
+
                 <div class="form-group">
                     <label asp-for="Color" class="control-label"></label>
-                    <input asp-for="Color" class="form-control" type="color" />
+                    <input asp-for="Color" class="form-control" type="color"/>
                     <span asp-validation-for="Color" class="text-danger"></span>
                 </div>
             </div>
         </div>
-        
+
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">Guardar</button>
             <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
